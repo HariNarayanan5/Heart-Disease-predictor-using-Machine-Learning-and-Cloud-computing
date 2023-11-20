@@ -1,0 +1,410 @@
+Source Code:
+4.1 Connect Kaggle in Colab platform
+! pip install Kaggle
+from google.colab import drive
+drive.mount('/content/drive')
+! mkdir ~/.kaggle
+! cp /content/drive/MyDrive/Final_Project/kaggle.json ~/.kaggle/kaggle.json
+! chmod 600 ~/.kaggle/kaggle.json
+! kaggle datasets download sivagurunathan28/heart-prediction-disease-dataset
+!unzip \*.zip && rm *.zip
+#import dataset from Kaggle
+train = pd.read_csv('/content/heart_cleveland_upload (1) (1).csv')
+train
+4.2 Univariate Analysis
+# Displaying numeric distribution:
+fig = plt.figure(constrained_layout=True, figsize=(16, 12))
+grid = gridspec.GridSpec(ncols=6, nrows=3, figure=fig)
+ #Most of the continuous variables are somehow close to a gaussian distribution with small
+skews (left or right) except for oldpeak.
+ #Again there are some outliers espacially a strong one in Cholesterol worth taking a closer
+look at.
+ax1 = fig.add_subplot(grid[0, :2])
+ax1.set_title('Trestbps Distribution')
+sns.distplot(train[continuous[1]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+color=cust_palt[0])
+ax15 = fig.add_subplot(grid[0, 2:3])
+ax15.set_title('Trestbps')
+sns.boxplot(train[continuous[1]], orient='v', color=cust_palt[0])
+ax2 = fig.add_subplot(grid[0, 3:5])
+ax2.set_title('Chol Distribution')
+sns.distplot(train[continuous[2]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[1])
+ax25 = fig.add_subplot(grid[0, 5:])
+ax25.set_title('Chol')
+sns.boxplot(train[continuous[2]], orient='v', color=cust_palt[1])
+ax3 = fig.add_subplot(grid[1, :2])
+ax3.set_title('Thalach Distribution')
+sns.distplot(train[continuous[3]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[2])
+ax35 = fig.add_subplot(grid[1, 2:3])
+ax35.set_title('Thalach')
+sns.boxplot(train[continuous[3]], orient='v', color=cust_palt[2])
+ax4 = fig.add_subplot(grid[1, 3:5])
+ax4.set_title('Oldpeak Distribution')
+sns.distplot(train[continuous[4]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[3])
+ax45 = fig.add_subplot(grid[1, 5:])
+ax45.set_title('Oldpeak')
+sns.boxplot(train[continuous[4]], orient='v', color=cust_palt[3])
+ax5 = fig.add_subplot(grid[2, :4])
+ax5.set_title('Age Distribution')
+sns.distplot(train[continuous[0]],
+ hist_kws={
+ 'rwidth': 0.95,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[4])
+ax55 = fig.add_subplot(grid[2, 4:])
+ax55.set_title('Age')
+sns.boxplot(train[continuous[0]], orient='h', color=cust_palt[4])
+plt.show()
+4.3 Numeric Data
+# Displaying numeric distribution:
+fig = plt.figure(constrained_layout=True, figsize=(16, 12))
+grid = gridspec.GridSpec(ncols=6, nrows=3, figure=fig)
+ #Most of the continuous variables are somehow close to a gaussian distribution with small
+skews (left or right) except for oldpeak.
+ #Again there are some outliers espacially a strong one in Cholesterol worth taking a closer
+look at.
+ax1 = fig.add_subplot(grid[0, :2])
+ax1.set_title('Trestbps Distribution')
+sns.distplot(train[continuous[1]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[0])
+ax15 = fig.add_subplot(grid[0, 2:3])
+ax15.set_title('Trestbps')
+sns.boxplot(train[continuous[1]], orient='v', color=cust_palt[0])
+ax2 = fig.add_subplot(grid[0, 3:5])
+ax2.set_title('Chol Distribution')
+sns.distplot(train[continuous[2]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[1])
+ax25 = fig.add_subplot(grid[0, 5:])
+ax25.set_title('Chol')
+sns.boxplot(train[continuous[2]], orient='v', color=cust_palt[1])
+ax3 = fig.add_subplot(grid[1, :2])
+ax3.set_title('Thalach Distribution')
+sns.distplot(train[continuous[3]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[2])
+ax35 = fig.add_subplot(grid[1, 2:3])
+ax35.set_title('Thalach')
+sns.boxplot(train[continuous[3]], orient='v', color=cust_palt[2])
+ax4 = fig.add_subplot(grid[1, 3:5])
+ax4.set_title('Oldpeak Distribution')
+sns.distplot(train[continuous[4]],
+ hist_kws={
+ 'rwidth': 0.85,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[3])
+ax45 = fig.add_subplot(grid[1, 5:])
+ax45.set_title('Oldpeak')
+sns.boxplot(train[continuous[4]], orient='v', color=cust_palt[3])
+ax5 = fig.add_subplot(grid[2, :4])
+ax5.set_title('Age Distribution')
+sns.distplot(train[continuous[0]],
+ hist_kws={
+ 'rwidth': 0.95,
+ 'edgecolor': 'black',
+ 'alpha': 0.8},
+ color=cust_palt[4])
+ax55 = fig.add_subplot(grid[2, 4:])
+ax55.set_title('Age')
+sns.boxplot(train[continuous[0]], orient='h', color=cust_palt[4])
+plt.show()
+4.4 Bivariate Analysis:
+ Bivariate analysis is one of the simplest forms of quantitative analysis. It involves the
+analysis of two variables, for the purpose of determining the empirical relationship
+between them.
+ Bivariate analysis can be helpful in testing simple hypotheses of association.
+# Categorical data vs condition:
+ctg_dist(train, categorical[:-1], 'condition', 4, 2)
+4.5 Correlation Analysis:
+Use pearson correlation to find linear relations between features. Heatmap is decent way to
+show these relations.
+# Correlation heatmap between variables:
+sns.set(font_scale=1.1)
+correlation_train = train.corr()
+mask = np.triu(correlation_train.corr())
+plt.figure(figsize=(20, 12))
+sns.heatmap(correlation_train,
+ annot=True,
+ fmt='.3f',
+ cmap='autumn_r',
+ linewidths=1,
+ cbar=True)
+plt.show()
+4.6 Classifiers:
+# Selecting some classifiers:
+gradclass = GradientBoostingClassifier(random_state=seed)
+knclass = KNeighborsClassifier()
+dectree = DecisionTreeClassifier(random_state=seed)
+svc = SVC()
+randfclass = RandomForestClassifier(random_state=seed)
+adaclass = AdaBoostClassifier(random_state=seed)
+mlpclass = MLPClassifier(random_state=seed)
+gsclass = GaussianNB()
+def model_check(X, y, classifiers, cv):
+ ''' A function for testing multiple classifiers and return various performance metrics. '''
+ model_table = pd.DataFrame()
+ row_index = 0
+ for cls in classifiers:
+ MLA_name = cls.__class__.__name__
+ model_table.loc[row_index, 'Model Name'] = MLA_name
+ cv_results = cross_validate(
+ cls,
+ X,
+ y,
+ cv=cv,
+ scoring=('accuracy','f1','roc_auc'),
+ return_train_score=True,
+ n_jobs=-1
+ )
+ model_table.loc[row_index, 'Train Roc/AUC Mean'] = cv_results[
+ 'train_roc_auc'].mean()
+ model_table.loc[row_index, 'Test Roc/AUC Mean'] = cv_results[
+ 'test_roc_auc'].mean()
+ model_table.loc[row_index, 'Test Roc/AUC Std'] = cv_results['test_roc_auc'].std()
+ model_table.loc[row_index, 'Train Accuracy Mean'] = cv_results[
+ 'train_accuracy'].mean()
+ model_table.loc[row_index, 'Test Accuracy Mean'] = cv_results[
+ 'test_accuracy'].mean()
+ model_table.loc[row_index, 'Test Acc Std'] = cv_results['test_accuracy'].std()
+ model_table.loc[row_index, 'Train F1 Mean'] = cv_results[
+ 'train_f1'].mean()
+ model_table.loc[row_index, 'Test F1 Mean'] = cv_results[
+ 'test_f1'].mean()
+ model_table.loc[row_index, 'Test F1 Std'] = cv_results['test_f1'].std()
+ model_table.loc[row_index, 'Time'] = cv_results['fit_time'].mean()
+ row_index += 1
+ model_table.sort_values(by=['Test F1 Mean'],
+ ascending=False,
+ inplace=True)
+ return model_table
+4.7 Isolation Forest:
+# Applying Isolation Forest:
+iso = IsolationForest(contamination=0.1,random_state=seed)
+yhat = iso.fit_predict(X)
+mask = (yhat != -1)
+X_iso = X.loc[mask, :]
+y_iso= y[mask]
+# Checking isolated models:
+iso_models = model_check(X_iso, y_iso, classifiers, cv)
+display(iso_models)
+4.8 Learning Curves:
+def plot_learning_curve(classifiers,
+ X,
+ y,
+ ylim=None,
+ cv=None,
+ n_jobs=None,
+ train_sizes=np.linspace(.1, 1.0, 5)):
+ ''' A function for displaying learning curvers fur multiple ml algorithms'''
+ fig, axes = plt.subplots(math.ceil(len(classifiers) / 2),
+ 2,
+ figsize=(25, 50))
+ axes = axes.flatten()
+ for ax, classifier in zip(axes, classifiers):
+ ax.set_title(f'{classifier.__class__.__name__} Learning Curve')
+ if ylim is not None:
+ ax.set_ylim(*ylim)
+ ax.set_xlabel('Training examples')
+ ax.set_ylabel('Score')
+ train_sizes, train_scores, test_scores, fit_times, _ = \
+ learning_curve(classifier, X, y, cv=cv, n_jobs=n_jobs,
+ train_sizes=train_sizes,
+ return_times=True, scoring='f1', random_state=seed
+ )
+ train_scores_mean = np.mean(train_scores, axis=1)
+ train_scores_std = np.std(train_scores, axis=1)
+ test_scores_mean = np.mean(test_scores, axis=1)
+ test_scores_std = np.std(test_scores, axis=1)
+ # Plot learning curve
+ ax.fill_between(train_sizes,
+ train_scores_mean - train_scores_std,
+ train_scores_mean + train_scores_std,
+ alpha=0.1,
+ color='r')
+ ax.fill_between(train_sizes,
+ test_scores_mean - test_scores_std,
+ test_scores_mean + test_scores_std,
+ alpha=0.1,
+ color='g')
+ ax.plot(train_sizes,
+ train_scores_mean,
+ 'o-',
+ color='r',
+ label='Training score')
+ ax.plot(train_sizes,
+ test_scores_mean,
+ 'o-',
+ color='g',
+ label='Cross-validation score')
+ ax.legend(loc='best')
+ ax.yaxis.set_major_locator(MaxNLocator(nbins=24))
+ plt.show()
+# Displaying learning curves:
+plot_learning_curve(classifiers,
+ X_cat,
+ y_eli,
+ ylim=None,
+ cv=cv,
+ n_jobs=-1,
+ train_sizes=np.linspace(.1, 1.0, 10))
+4.9 Dimentionality Reduction Using PCA:
+# Fitting PCA:
+pca = PCA()
+pca.fit(X_cat)
+pca_samples = pca.transform(X_cat)
+4.10 Components:
+We start with 5 components. It looks like these 5 explains half of the variance in our data.
+# 5 Component PCA:
+pca = PCA(5)
+pca.fit(X_cat)
+pca_samples = pca.transform(X_cat)
+# Displaying 50% of the variance:
+total_var = pca.explained_variance_ratio_.sum() * 100
+labels = {str(i): f'PC {i+1}' for i in range(5)}
+labels['color'] = 'condition'
+fig = px.scatter_matrix(
+ pca_samples,
+ color=y_eli,
+ dimensions=range(5),
+ labels=labels,
+ title=f'Total Explained Variance: {total_var:.2f}%',
+ opacity=0.8,
+ color_continuous_scale=cust_palt,
+)
+fig.update_traces(diagonal_visible=False)
+fig.show()
+4.11 Reduced Dimension Model Results:
+These are pretty good results! We almost have same model metrics for most of the classifiers
+and even got some better regularization for some estimators!
+# Reduced Dimension Model Results
+model_check(matrix_2d, y_eli, classifiers, cv)
+4.12 Accuracy:
+print('\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with KNN :\n')
+total=267
+for x in GBCwithKNN:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithKNN[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with
+Decision Tree Classifier :\n')
+for x in GBCwithDTC:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithDTC[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with SVC
+:\n')
+for x in GBCwithSVC:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithSVC[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with
+Random Forest Classifier :\n')
+for x in GBCwithRFC:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithRFC[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with Ada
+Boost Classifier :\n')
+for x in GBCwithABC:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithABC[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with MLP
+:\n')
+for x in GBCwithMLP:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithMLP[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Gradiantboost Classifier Hyperparameter Tuning with
+Gaussian Naive Base :\n')
+for x in GBCwithGNB:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += GBCwithGNB[i][i]
+result=result/total
+print('Accuracy = ',result)
+print('\n\nConvolution Matrix :Decision Tree Hyperparameter Tuning with SVC :\n')
+for x in DTCwithSVC:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += DTCwithSVC[i][i]
+result=result/total
+print('Accuracy = ',result)
+print("\n Its Highest among all the Hybrid methods\n")
+print('\n\nConvolution Matrix :MLP Hyperparameter Tuning with Gaussian Naive Base :\n')
+for x in MLPwithGNB:
+ for i in x:
+ print(i, end = " ")
+ print()
+result=0
+for i in range(2):
+ result += MLPwithGNB[i][i]
+result=result/total
+print('Accuracy = ',result)
