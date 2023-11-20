@@ -1,0 +1,92 @@
+Summary of the Base Paper
+Title of the Base Paper HealthCloud: A system for monitoring health status
+of heart patients using machine learning and cloud
+computing.
+Journal Name Internet of Things
+Publisher Elsevier
+Volume 17
+Publication Date March 2022
+Indexed in Scopus
+DOI https://doi.org/10.1016/j.iot.2021.100485
+The database, titled “HealthCloud: A Cardiovascular Health Care System Using Machine
+Learning and Cloud Computing,” is a program for medical technology. In this context, we
+will examine the concepts, innovations, research objectives, solutions, architectural and
+algorithmic foundations of this article in more depth.
+Content and Resources:
+After the global health crisis in 2020, there has been an increase in the number of people selftesting before seeking advice from a doctor. This article addresses this trend through
+HealthCloud, a new initiative designed to provide accurate medical information and
+predictions specifically related to cardiovascular disease. The main results of this study are as
+follows:
+Development of HealthCloud: The main aim is to launch HealthCloud, a diagnostic that
+predicts heart disease. The system uses machine learning and cloud computing to give people
+powerful tools to monitor their health.
+Machine learning model evaluation: This article performs an evaluation of various machine
+learning models, including support vector machines, K-nearest neighbors, neural networks,
+logistic regression, and gradient boosting. Models are trained on relevant data and their
+performance is evaluated using various classification methods.
+Comparative analysis: The authors compared the performance, specificity, and AUC scores
+of these machine learning models by evaluating various metrics (e.g., accuracy, trueness,
+sensitivity). This in-depth analysis helps identify the best predictive models for heart disease.
+iOS App Integration: The research went one step further and created a prototype iOS app
+that provides real-time data analysis to users. The app integrates with Google Cloud Firebase,
+improving accessibility and user experience.
+Findings and solutions:
+This research addresses the impact of the COVID-19 pandemic on the emergence of selfinfatuation. Many people rely on internet searches to explain their symptoms, which often
+leads to inaccurate conclusions. To solve this problem, the authors recommend HealthCloud
+as a solution.
+HealthCloud uses multiple machine learning algorithms to predict heart disease. The
+algorithms were evaluated using data from the Cleveland Heart Disease dataset, which
+contains 303 rows and 14 rows. This data includes characteristics such as age, gender, and
+chest pain level.The proposed solution is to provide users with accurate predictions, including
+Quality of Service (QoS) parameters. These parameters include execution time, memory
+usage, and latency; all of which helps the system deliver fast, accurate, and responsive results
+to users without causing lag or overload of the device.
+Architecture and Algorithms:
+HealthCloud's architecture includes machine learning models trained on cardiovascular
+disease data. Five models were evaluated: support vector classifier, K-nearest neighbor,
+neural network, logistic regression, and gradient boosted tree. This model is used in a cloud
+computing framework that provides scalability and instant data analysis capabilities.
+The accuracy of the algorithm is determined by rigorous testing. Among statistical models,
+logistic regression is the fastest and most accurate. Evaluation includes indicators such as
+accuracy, precision, sensitivity, specificity and AUC scores.
+
+Conclusion:
+HealthCloud is an integrated system that allows people to make decisions about their health.
+It provides accurate predictions and relevant advice, bridging the gap between self-diagnosis
+and doctor advice. This study highlights the importance of determining QoS parameters to
+improve user experience and make diagnostic systems an important tool in clinical practice.
+2. Merits and Demerits of the Base paper:
+Merits:
+Machine learning: Simple paper uses machine learning to predict heart disease. This is a
+plus because machine learning can provide accurate and timely predictions, which is
+important in healthcare.
+Different learning models: This article explores and reviews various learning models,
+including support vector machines, K-nearest neighbors, neural networks, logistic regression,
+and gradient boosted trees. This different approach is useful because it helps determine the
+best model for the job.
+Quality of Service (QoS) Note: This article covers Quality of Service (QoS), which is not
+part of the evaluation. This is important to ensure that the system provides reliable and
+efficient service, especially in monitoring applications.
+Cloud-based solutions: Integrating cloud computing (especially Google Cloud Firebase) for
+real-time data analysis increases the scalability and performance of the system. This cloud
+application can process large amounts of data and reduce the workload on end devices.
+Patient Empowerment: This article highlights the importance of providing patients with
+information about their health. This can lead to more informed decisions and better
+communication with healthcare providers.
+Demerits:
+Data Imbalance: The base paper mentions that the test dataset used in the study is
+imbalanced, with a majority of instances not having heart disease. This can lead to
+misleadingly high accuracy scores. Addressing data imbalance and using appropriate
+evaluation metrics for imbalanced datasets should be a consideration.
+Lack of Validation on Real Patients: While the machine learning models are evaluated
+using a dataset, there is no mention of validation with real patients. It's important to validate
+the system's performance in a clinical setting to ensure its reliability and effectiveness.
+Ethical and Privacy Concerns: The paper does not elaborate on the ethical and privacy
+concerns associated with handling patient data in a cloud-based system. It's crucial to address
+data privacy, security, and informed consent in healthcare applications.
+Limited Discussion on False Positives and Negatives: While the paper mentions false
+positives and false negatives, it could provide a more in-depth discussion of their potential
+impact on patient care and strategies to mitigate their consequences.
+Lack of Comparative Analysis with Related Work: The base paper does not extensively
+compare its results with existing studies or related work. A more comprehensive analysis
+could highlight the uniqueness.
