@@ -1,0 +1,23 @@
+Abstract:
+In the context of the world health crisis of 2021, cardiovascular diseases are the most
+common cause of death worldwide over the last few decades in the developed as well as
+underdeveloped and developing countries. Early detection of cardiac diseases and continuous
+supervision of clinicians can reduce the mortality rate. However, accurate detection of heart
+diseases in all cases and consultation of a patient for 24 hours by a doctor is not available
+since it requires more patience, time and expertise. In this study, a tentative design of a cloudbased heart disease prediction system had been proposed to detect impending heart disease
+using machine learning techniques. Existing self-diagnosis systems include those attainable
+via the internet, which involve entering one's symptoms. There exist several methods, for
+example, people read/search medical blogs or notes, which are illuminated wrongly by them,
+and they arrive at a completely different presumption regarding the cause of their symptoms.
+This study's goal is to join the information required for the person to understand the disease
+in adequate detail, with an accurate prediction whether they may have heart disease or not.
+The presence of heart disease is predicted using machine learning algorithms such as Support
+Vector Machine, K-Nearest Neighbors, Decision Tree, Random Forest, Gradient Boosting
+Trees and Gaussian Naive Bayes. This project evaluates these machine learning algorithms to
+obtain the most accurate model, in compliance with Quality of Service (QoS) parameters.
+The performance of these machine learning models is scaled and to be compared using the
+metrics such as Accuracy, Sensitivity (Recall), Specificity, AUC scores, Execution Time and
+Latency.
+KEY WORDS: Heart disease prediction, Machine learning algorithms, Data
+preprocessing, feature selection, Healthcare data, Quality of Service (QoS), Medical ethics,
+Colab.
